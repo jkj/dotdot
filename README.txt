@@ -33,6 +33,13 @@ Do the same thing for the root user. If the root user's home directory is on a
 different filesystem to the user you extracted this for, then you will need to
 use symbolic links, but if at all possible hard links are better.
 
+If you want to put private, personal customisations and variable settings the
+thing to do is to create a file called ${USER}.sh in your ${DOTHOME}. This is
+sourced before the common code so for example, this is the place to set the
+DOTDOT_AWS_PROD_ID variable to the account ID of your production account. This
+will cause any k8s context in that account to be coloured more prominently so
+you don't accidentally mess with the wrong cluster.
+
 Log out completely and log back in again. Enjoy.
 
 CREDITS
