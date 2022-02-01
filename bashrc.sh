@@ -13,6 +13,7 @@ shopt -s checkwinsize
 
   #bind "set colored-completion-prefix on"
   bind "set colored-stats on"
+  bind "set menu-complete-display-prefix on"
   bind 'Tab:menu-complete'
 }
 
