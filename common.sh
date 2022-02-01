@@ -53,8 +53,9 @@ export LESS=-Mier
 export PAGER=less
 export EDITOR=/usr/bin/vim
 export MYSQL_PS1="(\u@\h) [\d]> "
-export AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION:-us-east-1}"
-export AWS_PROFILE="${AWS_PROFILE:-development}"
+#export CDPATH=".:${HOME}/flex:${HOME}/flex/meta-flex"
+#export AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION:-us-east-1}"
+#export AWS_PROFILE="${AWS_PROFILE:-development}"
 
 # PS2="└─▪ "
 PS2="${blcorner}${horiz}${square} "

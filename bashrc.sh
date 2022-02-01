@@ -13,7 +13,7 @@ shopt -s checkwinsize
 
   #bind "set colored-completion-prefix on"
   bind "set colored-stats on"
-  #bind 'Tab:menu-complete'
+  bind 'Tab:menu-complete'
 }
 
 # Do NOT use $HOME here - set an actual path. Reason being that this same file
