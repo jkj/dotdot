@@ -97,7 +97,12 @@ afg() {
 
 # Find all files in or below the current directory that match the give name.
 ff() {
-  find . -name '.git' -prune -o -iname "$@" -print
+  local z=''
+  [ "$1" = "-0" ] && {
+    z=0
+    shift
+  }
+  find . -name '.git' -prune -o -iname "$@" -print${z}
 }
 
 # AWS and k8s stuff. Usage: awsdev [commands.....] or awsprod [commands....]
