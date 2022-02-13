@@ -477,6 +477,7 @@ vc_git_hide_status() {
 }
 
 vc_git_status() {
+  vc_git_hide_status && return
   git diff-index --quiet HEAD 2> /dev/null
 }
 

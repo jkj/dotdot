@@ -38,6 +38,8 @@ noremap <A-8> 8gt
 noremap <A-9> 9gt
 noremap <A-0> :tablast<cr>
 cnoreabbrev tn tabnew
+iab teh the
+iab Teh The
 
 " Don't display the toolbar - we never use it
 set guioptions-=T
