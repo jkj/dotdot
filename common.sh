@@ -24,7 +24,9 @@
 
 source "${DOTHOME}/colors.sh"
 set -o ignoreeof
-[ -f "${DOTHOME}/${USER}.sh" ] && source "${DOTHOME}/${USER}.sh"
+[ "$UID" = "0" ] || {
+  [ -f "${DOTHOME}/${USER}.sh" ] && source "${DOTHOME}/${USER}.sh"
+}
 
 #
 # I really hate the collation sequence used for UTF-8 for file listings. Nearly
@@ -254,7 +256,7 @@ custom_prompt() {
     shlv="${bold_black_bg}${bold}${leftchev}${SHLVL}${rightchev}${no_bold}${normal_bg}${dotps1_color} "
   }
 
-    PS1="${dotps1_tb}${dotps1_color}${tlcorner}${horiz}[${psc}${bold}${dotps1_user}@${dotps1_host}${dotps1_color}:${cyan_fg}${dotps1_pwd}${no_bold}${dotps1_color}]$(vc_prompt)$(dotps1_prompt)$(right_prompt)
+  PS1="${dotps1_tb}${dotps1_color}${tlcorner}${horiz}[${psc}${bold}${dotps1_user}@${dotps1_host}${dotps1_color}:${cyan_fg}${dotps1_pwd}${no_bold}${dotps1_color}]$(vc_prompt)$(dotps1_prompt)$(right_prompt)
 ${dotps1_color}${blcorner}${horiz}${shlv}${pec}${normal_fg} "
 }
 

@@ -17,6 +17,7 @@ set bs=2
 set sw=2
 set gfn=terminal\ Medium\ 16
 filetype plugin on
+filetype plugin indent on
 syntax on
 hi Comment ctermfg=Green
 hi Constant ctermfg=Yellow

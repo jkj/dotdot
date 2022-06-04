@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/kean/flex/ops-dashboard/httpServer/workers/userService'
+let g:netrw_dirhist_9='/home/kean/flex/worktable/ci/helm'
+let g:netrw_dirhist_8='/home/kean/flex/worktable/ci'
+let g:netrw_dirhist_7='/home/kean/flex/ops-dashboard'
+let g:netrw_dirhist_6='/home/kean/flex/ops-dashboard/auth-lambda'
+let g:netrw_dirhist_5='/home/kean/flex/meta-flex/rental-ops/ci/helm/templates'
+let g:netrw_dirhist_4='/home/kean/flex/ops-dashboard/ci/helm'
+let g:netrw_dirhist_3='/home/kean/lua/lua-cjson/lua/cjson'
+let g:netrw_dirhist_2='/home/kean/.kube/cache'
+let g:netrw_dirhist_1='/home/kean/flex/alexandrea/developer'
