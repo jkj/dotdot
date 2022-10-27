@@ -56,8 +56,8 @@ export PAGER=less
 export EDITOR=/usr/bin/vim
 export MYSQL_PS1="(\u@\h) [\d]> "
 #export CDPATH=".:${HOME}/flex:${HOME}/flex/meta-flex"
-#export AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION:-us-east-1}"
-#export AWS_PROFILE="${AWS_PROFILE:-development}"
+export AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION:-us-east-1}"
+export AWS_PROFILE="${AWS_PROFILE:-dev}"
 
 # PS2="└─▪ "
 PS2="${blcorner}${horiz}${square} "
@@ -94,7 +94,7 @@ afg() {
     shift 2
   }
 
-  find . -name '.git' -prune -o -type f $nma $nmn $nmf -a -print0 | xargs -0 grep "$@"
+  find . \( -name '.git' -o -name 'assets' \) -prune -o -type f $nma $nmn $nmf -a -print0 | xargs -0 grep "$@"
 }
 
 # Find all files in or below the current directory that match the give name.
@@ -120,10 +120,16 @@ aws_common() {
     return
   }
 
-  aws --profile $which "$@"
+  AWS_PROFILE="${which}" aws --profile $which "$@"
 }
-alias awsprod='aws_common production'
-alias awsdev='aws_common development'
+alias awsavance='aws_common avance'
+alias awsnext='aws_common next'
+alias awsdev='aws_common dev'
+alias awspdev='aws_common powerDev'
+alias awsstg='aws_common stg'
+alias awspstg='aws_common powerStg'
+alias awsprod='aws_common prod'
+alias awspprod='aws_common powerProd'
 
 awsnone() {
   unset AWS_PROFILE

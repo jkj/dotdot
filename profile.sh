@@ -16,6 +16,14 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+# Set PATH to include Go if it exists
+[ -d /usr/local/go/bin ] && {
+    PATH="/usr/local/go/bin:$PATH"
+}
+[ -d "${HOME}/go/bin"  ] && {
+    PATH="${HOME}/go/bin:$PATH"
+}
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.bin" ] ; then
     PATH="$HOME/.bin:$PATH"
@@ -26,7 +34,7 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-node_dir=/usr/local/node-v14.16.1-linux-x64
+node_dir=/usr/local/node-v16.18.0-linux-x64
 if [ -d "$node_dir" ]; then
     PATH="$node_dir/bin:$PATH"
 fi
