@@ -1,9 +1,20 @@
 #!/usr/bin/env bash
+UNAMES=`uname -s 2> /dev/null`
+if [ "${UNAMES}" = "Darwin" ]; then
+  DOTARCH=mac
+  HOMEROOT=/Users
+else
+  DOTARCH=linux
+  HOMEROOT=/home
+fi
+
+export UNAMES DOTARCH HOMEROOT
 
 HISTCONTROL=ignoreboth
-HISTSIZE=1000
-HISTFILESIZE=20000
+HISTSIZE=10000
+HISTFILESIZE=10000
 PROMPT_DIRTRIM=5
+
 unset MAILCHECK
 
 shopt -s histappend
@@ -18,12 +29,12 @@ shopt -s checkwinsize
 }
 
 # Do NOT use $HOME here - set an actual path. Reason being that this same file
-# should ideally be hard linked from teh repo into both the user AND the root
+# should ideally be hard linked from the repo into both the user AND the root
 # directory. Thus in order for the root user to have an almost identical look
 # and feel, it should source the same files. It is obvious where the root user
 # is treated differently in the various prompt type bits and there is a whole
 # special file for root over-rides below.
-export DOTHOME="${DOTHOME:-/home/kean/.dot.dot}"
+export DOTHOME="${DOTHOME:-/${HOMEROOT}/kean/.dot.dot}"
 source "${DOTHOME}/common.sh"
 dotps1_color="${bold_cyan_fg}"
 
@@ -79,3 +90,9 @@ safe_append_prompt_command() {
 #
 # safe_append_prompt_command custom_prompt
 PROMPT_COMMAND=custom_prompt
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "/${HOMEROOT}/kean/.local/google-cloud-sdk/path.bash.inc" ]; then . "/${HOMEROOT}/kean/.local/google-cloud-sdk/path.bash.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "/${HOMEROOT}/kean/.local/google-cloud-sdk/completion.bash.inc" ]; then . "/${HOMEROOT}/kean/.local/google-cloud-sdk/completion.bash.inc"; fi

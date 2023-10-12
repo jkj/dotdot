@@ -1,12 +1,11 @@
 # ~/.profile: executed by the command interpreter for login shells.
-# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
-# exists.
-# see /usr/share/doc/bash/examples/startup-files for examples.
-# the files are located in the bash-doc package.
+UNAMES=`uname -s 2> /dev/null`
+export UNAMES
 
-# the default umask is set in /etc/profile; for setting the umask
-# for ssh logins, install and configure the libpam-umask package.
-#umask 022
+umask 022
+
+# For MacOS in case you want to use bash.
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -15,6 +14,11 @@ if [ -n "$BASH_VERSION" ]; then
 	. "$HOME/.bashrc"
     fi
 fi
+
+# Set PATH to include Homebrew if it exists
+[ -d /opt/homebrew/bin ] && {
+    PATH="/opt/homebrew/bin:$PATH"
+}
 
 # Set PATH to include Go if it exists
 [ -d /usr/local/go/bin ] && {
@@ -34,7 +38,11 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-node_dir=/usr/local/node-v16.18.0-linux-x64
-if [ -d "$node_dir" ]; then
-    PATH="$node_dir/bin:$PATH"
+#node_dir=/usr/local/node-v16.18.0-linux-x64
+#if [ -d "$node_dir" ]; then
+#    PATH="$node_dir/bin:$PATH"
+#fi
+
+if [ "${UNAMES}" = "Darwin" ]; then
+    PATH="$PATH:/Users/kean/Library/Application Support/JetBrains/Toolbox/scripts"
 fi

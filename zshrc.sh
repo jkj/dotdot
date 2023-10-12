@@ -1,3 +1,15 @@
+#!/usr/bin/env zsh
+UNAMES=`uname -s 2> /dev/null`
+if [ "${UNAMES}" = "Darwin" ]; then
+  DOTARCH=mac
+  HOMEROOT=/Users
+else
+  DOTARCH=linux
+  HOMEROOT=/home
+fi
+
+export UNAMES DOTARCH HOMEROOT
+
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export HISTFILESIZE=10000
@@ -18,10 +30,12 @@ set -o sharehistory
 
 bindkey -e
 
+autoload -Uz compinit && compinit
+
 # Do not use $HOME here. Change to your personal homedir.
-export DOTHOME="${DOTHOME:-/home/kean/.dot.dot}"
+export DOTHOME="${DOTHOME:-/${HOMEROOT}/kean/.dot.dot}"
 source "${DOTHOME}/common.sh"
-dotps1_color="${bold_yellow_fg}"
+dotps1_color="${bold_cyan_fg}"
 
 dotps1_prompt() {
   :
@@ -37,3 +51,9 @@ esac
 # autoload -Uz add-zsh-hook
 # add-zsh-hook precmd custom_prompt
 precmd() { custom_prompt }
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "/${HOMEROOT}/kean/.local/google-cloud-sdk/path.zsh.inc" ]; then . "/${HOMEROOT}/kean/.local/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "/${HOMEROOT}/kean/.local/google-cloud-sdk/completion.zsh.inc" ]; then . "/${HOMEROOT}/kean/.local/google-cloud-sdk/completion.zsh.inc"; fi

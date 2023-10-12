@@ -35,11 +35,11 @@ set -o ignoreeof
 # but just for the ls command. We use aliases to get to this.
 #
 __ls() {
-  LANG="" LC_ALL="" /usr/bin/ls --color=auto "$@"
+  LANG="" LC_ALL="" /bin/ls --color=auto "$@"
 }
 
 # enable color support of ls and also add handy aliases
-test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+#test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 alias ls='__ls'
 alias l='__ls -l'
 alias grep='grep --color=auto'
