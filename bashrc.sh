@@ -19,6 +19,7 @@ unset MAILCHECK
 
 shopt -s histappend
 shopt -s checkwinsize
+
 [ -n "$PS1" ] && {
   # Only for interactive shells, and PS1 isn't set for non-interactive ones.
 
