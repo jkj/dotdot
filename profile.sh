@@ -64,7 +64,7 @@ if [ "${DOTARCH}" = "mac" ]; then
     if [ -d "/${HOME}/Library/Application Support/JetBrains/Toolbox/scripts" ] ; then
         PATH="$PATH:/${HOME}/Library/Application Support/JetBrains/Toolbox/scripts"
     fi
-    PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}"
+    PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${HOME}/Library/Python/3.10/bin:${PATH}"
 fi
 
 if [ "${DOTARCH}" = "linux" ]; then
