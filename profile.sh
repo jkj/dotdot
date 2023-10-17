@@ -23,7 +23,7 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-if [ "${DOTARCH}" = "mac"]; then
+if [ "${DOTARCH}" = "mac" ]; then
     # Set PATH to include Homebrew if it exists
     [ -d /opt/homebrew/bin ] && {
         PATH="/opt/homebrew/bin:$PATH"
@@ -64,6 +64,7 @@ if [ "${DOTARCH}" = "mac" ]; then
     if [ -d "/${HOME}/Library/Application Support/JetBrains/Toolbox/scripts" ] ; then
         PATH="$PATH:/${HOME}/Library/Application Support/JetBrains/Toolbox/scripts"
     fi
+    PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}"
 fi
 
 if [ "${DOTARCH}" = "linux" ]; then

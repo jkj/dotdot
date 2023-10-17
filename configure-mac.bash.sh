@@ -1,0 +1,30 @@
+export CC=clang
+export CFLAGS='-O3 -Wno-extra -Wno-all'
+../configure \
+  --prefix=/usr \
+  --sysconfdir=/etc \
+  --bindir=/bin \
+  --disable-mem-scramble \
+  --disable-net-redirections \
+  --disable-profiling \
+  --disable-strict-posix-default \
+  --disable-restricted \
+  --disable-rpath \
+  --disable-separate-helpfiles \
+  --enable-direxpand-default \
+  --enable-disabled-builtins \
+  --enable-extended-glob \
+  --enable-extended-glob-default \
+  --enable-function-import \
+  --enable-glob-asciiranges-default \
+  --enable-history \
+  --enable-job-control \
+  --enable-largefile \
+  --enable-nls \
+  --enable-single-help-strings \
+  --enable-threads=posix \
+  --enable-translatable-strings \
+  --disable-xpg-echo-default \
+  --with-curses \
+  --without-installed-readline \
+  --with-included-gettext
